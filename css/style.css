@@ -1,0 +1,130 @@
+/*=================Global Settings===================*/
+
+/*resete para todo o css*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.rodape {
+    background-color: green;
+    font-family: 'Press Start 2P', monospace;
+    padding-top: 1.2%;
+    text-align: center;
+}
+
+.score {
+    position: absolute;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: black;
+    top: 30px;
+    left: 50px;
+    font-size: x-large;
+  }
+
+.button-invisivel {
+    display: none;
+}
+
+.button {
+    color: red;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 20%;
+    height: 5vh;
+    margin-top: 330px;
+}
+
+.start {
+    color: black;
+}
+
+.start-gameover {
+    color: red;  
+}
+
+/*====================================================*/
+
+/*===================Game Settings====================*/
+
+/*div do jogo pela classe*/
+.game-board {
+    width: 100%; /*definindo a largura que vai ocupar*/
+    height: 95vh; /*definindo o tamanho*/
+    border-bottom: 0px solid green; /*definindo o tipo de bordar, grossura e cor*/
+    margin: 0 auto; /*centralizando*/
+    position: relative; /*para todas as imagens respeitarem a delimitação do quadro*/
+    overflow: hidden; /*tudo que sair da delimitação do quadro, ficar invisivel*/
+    background: linear-gradient(#87CEEB, #E0F6FF);
+}
+
+.clouds {
+    position: absolute; /*para que essa imagem não consuma o conteudo da outra*/
+    width: 550px; /*definindo o tamanho da imagem das nuvens*/
+    animation: clouds-animation 20s infinite linear; /*definindo a animação, duração, tempo, constancia*/
+}
+
+/*imagem do tubo pela classe*/
+.pipe {
+    position: absolute; /*para que essa imagem não consuma o conteudo da outra*/
+    bottom: 0; /*colocando a imagem para ficar fixo em baixo do quadro*/
+    width: 80px; /*definindo o tamanho da imagem do tubo*/
+   
+    /*definindo a animação, duração, tempo, constancia*/
+    animation: pipe-animation 1.5s infinite linear;
+}
+
+/*imagem do mario pela classe*/
+.mario {
+    width: 150px; /*definindo a largura que vai ocupar*/
+    position: absolute; /*para que essa imagem não consuma o conteudo da outra*/
+    bottom: 0; /*colocando a imagem para ficar fixo em baixo do quadro*/
+}
+
+ /*classe que fará o mario pular*/
+.jump {
+    /*definindo a animação, tempo, caimento*/
+    animation: jump-mario 500ms ease-out;
+}
+
+/*=====================================================*/
+
+/*======================KeyFrames======================*/
+
+/*definindo a animação da imagem do tubo*/
+@keyframes pipe-animation {
+    from{ /*definindo onde a animação começa, começo da direita*/
+        right: -80px;
+    }
+
+    to{ /*definindo onde a animação termina, final da direita*/
+        right: 100%;
+    }
+}
+
+@keyframes jump-mario { /*usando '%' para definir as fases da animação*/
+
+    0%{ /*quando tiver no começo*/
+        bottom: 0; /*a imagem do mario vai estar no chão*/
+    }
+
+    40%,50%,60%{ /*quando tiver entre o meio*/
+        bottom: 180px; /*a imagem do mario vai estar um pouco pra cima*/
+    }
+
+    100%{ /*quando tiver no fim*/
+        bottom: 0;
+    }
+}
+
+@keyframes clouds-animation {
+    from{ /*definindo onde a animação começa, começo da direita*/
+        right: -550px;
+    }
+
+    to{ /*definindo onde a animação termina, final da direita*/
+        right: 100%;
+    }
+}
